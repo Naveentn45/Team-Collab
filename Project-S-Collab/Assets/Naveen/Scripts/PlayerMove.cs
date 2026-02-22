@@ -16,7 +16,7 @@ public class PlayerMove : MonoBehaviour
 
     private void FixedUpdate()
     {
-        dolly.CameraPosition = player.position.z;
+        dolly.CameraPosition = player.position.x;
     }
     void Awake()
     {
