@@ -1,14 +1,23 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
+using Unity.Cinemachine;
+
+
 
 public class PlayerMove : MonoBehaviour
 {
+    public CinemachineSplineDolly dolly;
+    public Transform player;
     public float moveSpeed = 5f;
 
     private PlayerControl controls;
     private Animator animator;
     private float move;
 
+    private void FixedUpdate()
+    {
+        dolly.CameraPosition = player.position.z;
+    }
     void Awake()
     {
         controls = new PlayerControl();
@@ -35,7 +44,7 @@ public class PlayerMove : MonoBehaviour
         CharacterController controller = GetComponent<CharacterController>();
         controller.Move(moveDirection * moveSpeed * Time.deltaTime);
 
-        // Flip character
+        
         if (move > 0)
             transform.localScale = new Vector3(1, 1, 1);
         else if (move < 0)
