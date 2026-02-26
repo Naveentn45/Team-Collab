@@ -15,6 +15,35 @@ public class CameraFollow : MonoBehaviour
     public Vector2 minBounds;
     public Vector2 maxBounds;
 
+    private void Awake()
+    {
+        if (!target)
+        {
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            if (player)
+            {
+                target = player.transform;
+            }
+            else
+            {
+                PlayerController playerController = Object.FindFirstObjectByType<PlayerController>();
+                if (playerController)
+                {
+                    target = playerController.transform;
+                }
+            }
+        }
+
+        if (target)
+        {
+            transform.position = new Vector3(
+                target.position.x,
+                target.position.y + height,
+                cameraZ
+            );
+        }
+    }
+
     void LateUpdate()
     {
         if (!target) return;
