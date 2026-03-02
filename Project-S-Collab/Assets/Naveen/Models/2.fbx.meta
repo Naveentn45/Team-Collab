@@ -3,7 +3,12 @@ guid: 806ecadac11470144a6e23b444d6cc5d
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Moss Bark
+    second: {fileID: 2100000, guid: 5b37bf82ba23bb24fb527ea890761482, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
